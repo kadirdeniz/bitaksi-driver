@@ -1,0 +1,88 @@
+{
+  "consumer": {
+    "name": "MatcherService"
+  },
+  "provider": {
+    "name": "DriverService"
+  },
+  "interactions": [
+    {
+      "description": "a request to find a nearest driver",
+      "providerState": "a driver exists",
+      "request": {
+        "method": "GET",
+        "path": "/api/v1/drivers/nearest",
+        "query": "api_key=123&lat=51.507351&long=-0.127758",
+        "headers": {
+          "Content-Type": "application/json"
+        }
+      },
+      "response": {
+        "status": 200,
+        "headers": {
+          "Content-Type": "application/json"
+        },
+        "body": {
+          "coordinates": [
+            51.507351,
+            -0.127758
+          ],
+          "distance": "0",
+          "driver_id": "132123123"
+        },
+        "matchingRules": {
+          "$.body.coordinates": {
+            "match": "type"
+          }
+        }
+      }
+    },
+    {
+      "description": "a request to find a nearest driver",
+      "providerState": "a driver does not exist",
+      "request": {
+        "method": "GET",
+        "path": "/api/v1/drivers/nearest",
+        "query": "api_key=123&lat=51.507351&long=-0.127758",
+        "headers": {
+          "Content-Type": "application/json"
+        }
+      },
+      "response": {
+        "status": 404,
+        "headers": {
+          "Content-Type": "application/json"
+        },
+        "body": {
+          "error": "driver not found"
+        }
+      }
+    },
+    {
+      "description": "a request to find a nearest driver",
+      "providerState": "api key is invalid",
+      "request": {
+        "method": "GET",
+        "path": "/api/v1/drivers/nearest",
+        "query": "api_key=1234&lat=51.507351&long=-0.127758",
+        "headers": {
+          "Content-Type": "application/json"
+        }
+      },
+      "response": {
+        "status": 401,
+        "headers": {
+          "Content-Type": "application/json"
+        },
+        "body": {
+          "error": "invalid api key"
+        }
+      }
+    }
+  ],
+  "metadata": {
+    "pactSpecification": {
+      "version": "2.0.0"
+    }
+  }
+}
