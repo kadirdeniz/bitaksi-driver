@@ -6,7 +6,6 @@ import (
 	"errors"
 	"fmt"
 	"github.com/ory/dockertest/v3"
-	"github.com/ory/dockertest/v3/docker"
 	"log"
 )
 
@@ -42,17 +41,7 @@ func (d *Dockertest) RunMongoDB(config pkg.MongoDBConfig) error {
 
 	var err error
 
-	d.Resource, err = d.Pool.RunWithOptions(&dockertest.RunOptions{
-		Repository:   MongoDBImage,
-		Tag:          MongoDBTag,
-		Env:          MongoDBEnvirontmentVariables,
-		ExposedPorts: []string{ExposedPort},
-		PortBindings: map[docker.Port][]docker.PortBinding{
-			ExposedPort: {
-				{HostIP: "localhost", HostPort: ExposedPort},
-			},
-		},
-	})
+	d.Resource, err = d.Pool.Run(MongoDBImage, MongoDBTag, MongoDBEnvirontmentVariables)
 	if err != nil {
 		return errors.New("Could not start resource")
 	}
