@@ -2,8 +2,10 @@ package fiber
 
 import (
 	"driver/internal/repository"
+	"driver/pkg"
 	"driver/tools/fiber/handler"
 	"driver/tools/fiber/middleware"
+	"driver/tools/mongodb"
 	"driver/tools/zap"
 	"fmt"
 	swagger "github.com/arsmn/fiber-swagger/v2"
@@ -11,6 +13,7 @@ import (
 	"github.com/gofiber/fiber/v2/middleware/cors"
 	"github.com/gofiber/fiber/v2/middleware/monitor"
 	"github.com/gofiber/fiber/v2/middleware/recover"
+	"log"
 )
 
 func Router(port int) {
@@ -22,9 +25,14 @@ func Router(port int) {
 
 func StartServer(port int) error {
 
-	// Create repository
-	repository := repository.NewRepository()
+	// Connect to MongoDB
+	db, err := mongodb.NewMongoDB(pkg.AppConfigs.MongoDB).Connect()
+	if err != nil {
+		log.Fatal(err)
+	}
 
+	// Create repository
+	repository := repository.NewRepository(db)
 	if err := repository.Migration(); err != nil {
 		return err
 	}

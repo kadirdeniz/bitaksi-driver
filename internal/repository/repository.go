@@ -2,7 +2,6 @@ package repository
 
 import (
 	"driver/internal"
-	"driver/pkg"
 	"driver/tools/mongodb"
 )
 
@@ -17,9 +16,9 @@ type IRepository interface {
 	Migration() error
 }
 
-func NewRepository() IRepository {
+func NewRepository(mongoDBInterface mongodb.MongoDBInterface) IRepository {
 	return &Repository{
-		MongoDBInterface: mongodb.NewMongoDB(pkg.AppConfigs.GetMongoDBConfig()),
+		MongoDBInterface: mongoDBInterface,
 	}
 }
 

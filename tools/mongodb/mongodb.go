@@ -148,7 +148,7 @@ func (m *MongoDB) CreateIndexForGeoJSON() error {
 }
 
 func (m *MongoDB) MigrateWithCSVData() error {
-	const csvFileCount = 101000
+	const csvFileCount = 101001
 
 	for i := 1; i < csvFileCount; i = i + 1000 {
 		locations, err := pkg.GetLocationsFromCSVWithGivenRange(i, i+1000)
