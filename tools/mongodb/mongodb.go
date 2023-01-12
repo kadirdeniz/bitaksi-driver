@@ -4,6 +4,7 @@ import (
 	"context"
 	"driver/internal"
 	"driver/pkg"
+	"driver/tools/zap"
 	"go.mongodb.org/mongo-driver/bson"
 	"go.mongodb.org/mongo-driver/mongo"
 	"go.mongodb.org/mongo-driver/mongo/options"
@@ -32,6 +33,8 @@ type MongoDBInterface interface {
 	BulkCreateDrivers(locations []internal.Location) error
 	FlushLocations() error
 	FindLocations() ([]*internal.Location, error)
+	CreateIndexForGeoJSON() error
+	MigrateWithCSVData() error
 }
 
 func NewMongoDB(config pkg.MongoDBConfig) MongoDBInterface {
@@ -45,6 +48,21 @@ func NewMongoDB(config pkg.MongoDBConfig) MongoDBInterface {
 }
 
 func (m *MongoDB) FindNearestDriver(location internal.Coordinates) error {
+	filter := bson.M{
+		"location": bson.M{
+			"$near": bson.M{
+				"$geometry": bson.M{
+					"type":        "Point",
+					"coordinates": []float64{location.Longitude, location.Latitude},
+				},
+			},
+		},
+	}
+
+	if err := m.GetDriverCollection().FindOne(CTX, filter).Decode(&location); err != nil {
+		return err
+	}
+
 	return nil
 }
 
@@ -90,6 +108,7 @@ func (m *MongoDB) GetDatabase() *mongo.Database {
 
 func (m *MongoDB) FlushLocations() error {
 	if _, err := m.GetDriverCollection().DeleteMany(CTX, bson.M{}); err != nil {
+		zap.Logger.Error("Error while flushing locations :" + err.Error())
 		return err
 	}
 
@@ -112,4 +131,36 @@ func (m *MongoDB) FindLocations() ([]*internal.Location, error) {
 	}
 
 	return locations, nil
+}
+
+func (m *MongoDB) CreateIndexForGeoJSON() error {
+	index := mongo.IndexModel{
+		Keys: bson.M{
+			"location": "2dsphere",
+		},
+	}
+
+	if _, err := m.GetDriverCollection().Indexes().CreateOne(CTX, index); err != nil {
+		return err
+	}
+
+	return nil
+}
+
+func (m *MongoDB) MigrateWithCSVData() error {
+	const csvFileCount = 101000
+
+	for i := 1; i < csvFileCount; i = i + 1000 {
+		locations, err := pkg.GetLocationsFromCSVWithGivenRange(i, i+1000)
+		if err != nil {
+			return err
+		}
+
+		if err := m.BulkCreateDrivers(locations); err != nil {
+			return err
+		}
+
+	}
+
+	return nil
 }

@@ -89,4 +89,11 @@ var _ = Describe("MongoDB", Ordered, func() {
 			Expect(users).Should(BeNil())
 		})
 	})
+
+	Context("MigrateWithCSVData", func() {
+		It("should be success", func() {
+			err := mongo.MigrateWithCSVData()
+			Expect(err).Should(BeNil())
+		})
+	})
 })

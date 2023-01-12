@@ -25,6 +25,10 @@ func StartServer(port int) error {
 	// Create repository
 	repository := repository.NewRepository()
 
+	if err := repository.Migration(); err != nil {
+		return err
+	}
+
 	// Create handler
 	handler := handler.NewHandler(repository)
 
