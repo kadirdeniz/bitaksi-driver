@@ -17,7 +17,7 @@ import (
 )
 
 func Router(port int) {
-	err := StartServer(8000)
+	err := StartServer(port)
 	if err != nil {
 		zap.Logger.Fatal(err.Error())
 	}
