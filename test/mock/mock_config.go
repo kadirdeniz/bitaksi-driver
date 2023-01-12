@@ -7,5 +7,5 @@ var MongoConfig = pkg.MongoDBConfig{
 	Password: "admin",
 	Host:     "localhost",
 	Port:     "27017",
-	Database: "test",
+	Database: "bitaksi",
 }

@@ -1,8 +1,9 @@
-package mongodb
+package mongodb_test
 
 import (
 	"driver/test/mock"
 	"driver/tools/dockertest"
+	"driver/tools/mongodb"
 	"testing"
 
 	. "github.com/onsi/ginkgo/v2"
@@ -18,7 +19,7 @@ func TestMongodb(t *testing.T) {
 
 var _ = Describe("MongoDB", Ordered, func() {
 
-	var mongo MongoDBInterface
+	var mongo mongodb.MongoDBInterface
 	var dockerContainer *dockertest.Dockertest
 
 	BeforeAll(func() {
@@ -26,7 +27,7 @@ var _ = Describe("MongoDB", Ordered, func() {
 		err := dockerContainer.RunMongoDB(mongoConfig)
 		Expect(err).Should(BeNil())
 
-		NewMongoDB(mongoConfig).FlushUsers()
+		mongodb.NewMongoDB(mongoConfig).FlushUsers()
 	})
 
 	AfterAll(func() {
@@ -35,7 +36,7 @@ var _ = Describe("MongoDB", Ordered, func() {
 
 	Context("Connect", func() {
 		It("Should return database", func() {
-			mongo = NewMongoDB(mongoConfig)
+			mongo = mongodb.NewMongoDB(mongoConfig)
 			db, err := mongo.Connect()
 			Expect(err).Should(BeNil())
 			Expect(db).ShouldNot(BeNil())

@@ -55,7 +55,7 @@ func (m *MongoDB) FlushUsers() error {
 }
 
 func (m *MongoDB) GetMongoDBURI() string {
-	return "mongodb://" + m.Username + ":" + m.Password + "@" + m.Host + ":" + m.Port + "/" + m.DBName
+	return "mongodb://" + m.Username + ":" + m.Password + "@" + m.Host + ":" + m.Port
 }
 
 func (m *MongoDB) Connect() (*MongoDB, error) {

@@ -4,7 +4,9 @@ import (
 	"driver/pkg"
 	"driver/tools/mongodb"
 	"errors"
+	"fmt"
 	"github.com/ory/dockertest/v3"
+	"github.com/ory/dockertest/v3/docker"
 	"log"
 )
 
@@ -18,6 +20,7 @@ var MongoDBEnvirontmentVariables = []string{
 
 const MongoDBImage = "mongo"
 const MongoDBTag = "5.0"
+const ExposedPort = "27017"
 
 type Dockertest struct {
 	Pool     *dockertest.Pool
@@ -39,7 +42,17 @@ func (d *Dockertest) RunMongoDB(config pkg.MongoDBConfig) error {
 
 	var err error
 
-	d.Resource, err = d.Pool.Run(MongoDBImage, MongoDBTag, MongoDBEnvirontmentVariables)
+	d.Resource, err = d.Pool.RunWithOptions(&dockertest.RunOptions{
+		Repository:   MongoDBImage,
+		Tag:          MongoDBTag,
+		Env:          MongoDBEnvirontmentVariables,
+		ExposedPorts: []string{ExposedPort},
+		PortBindings: map[docker.Port][]docker.PortBinding{
+			ExposedPort: {
+				{HostIP: "localhost", HostPort: ExposedPort},
+			},
+		},
+	})
 	if err != nil {
 		return errors.New("Could not start resource")
 	}
@@ -47,6 +60,7 @@ func (d *Dockertest) RunMongoDB(config pkg.MongoDBConfig) error {
 	if err = d.Pool.Retry(func() error {
 		_, err := mongodb.NewMongoDB(config).Connect()
 		if err != nil {
+			fmt.Println(err)
 			return err
 		}
 
