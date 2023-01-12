@@ -12,7 +12,7 @@ import (
 	"strconv"
 )
 
-func GetLocationsFromCSVWithGivenRange(start, stop int) ([]internal.Location, error) {
+func GetLocationsFromCSVWithGivenRange(start, stop int) ([]internal.Model, error) {
 	_, b, _, _ := runtime.Caller(0)
 	basepath := filepath.Join(filepath.Dir(b), "./..")
 
@@ -36,7 +36,7 @@ func GetLocationsFromCSVWithGivenRange(start, stop int) ([]internal.Location, er
 	}
 
 	// read lines until we reach the stop
-	var locations []internal.Location
+	var locations []internal.Model
 	for i := start; i < stop; i++ {
 		record, err := reader.Read()
 		if err != nil {
@@ -62,12 +62,14 @@ func GetLocationsFromCSVWithGivenRange(start, stop int) ([]internal.Location, er
 			return nil, err
 		}
 
-		locations = append(locations, internal.Location{
-			ID:   primitive.NewObjectID(),
-			Type: "Point",
-			Coordinates: []float64{
-				lat,
-				lng,
+		locations = append(locations, internal.Model{
+			ID: primitive.NewObjectID(),
+			Location: internal.Location{
+				Type: "Point",
+				Coordinates: []float64{
+					lng,
+					lat,
+				},
 			},
 		})
 	}

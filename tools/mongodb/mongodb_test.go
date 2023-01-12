@@ -21,7 +21,7 @@ func TestMongodb(t *testing.T) {
 var _ = Describe("MongoDB", Ordered, func() {
 
 	var mongo mongodb.MongoDBInterface
-	var dockerContainer *dockertest.Dockertest
+	var dockerContainer dockertest.DockerTestInterface
 
 	BeforeAll(func() {
 		dockerContainer = dockertest.NewDockertest("")
@@ -67,7 +67,9 @@ var _ = Describe("MongoDB", Ordered, func() {
 
 	Context("BulkCreateDrivers", func() {
 		It("should be success", func() {
-			err := mongo.BulkCreateDrivers(mock.BulkCreateDriversRequest(20))
+			err := mongo.FlushLocations()
+			Expect(err).Should(BeNil())
+			err = mongo.BulkCreateDrivers(mock.BulkCreateDriversRequest(20))
 			Expect(err).Should(BeNil())
 
 			drivers, err := mongo.FindLocations()

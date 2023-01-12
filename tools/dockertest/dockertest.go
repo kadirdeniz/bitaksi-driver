@@ -26,7 +26,12 @@ type Dockertest struct {
 	Resource *dockertest.Resource
 }
 
-func NewDockertest(endpoint string) *Dockertest {
+type DockerTestInterface interface {
+	RunMongoDB(config pkg.MongoDBConfig) error
+	Purge() error
+}
+
+func NewDockertest(endpoint string) DockerTestInterface {
 	pool, err := dockertest.NewPool(endpoint)
 	if err != nil {
 		log.Fatalf("Could not connect to docker: %s", err)

@@ -29,10 +29,10 @@ type MongoDBInterface interface {
 	Connect() (*MongoDB, error)
 	GetDriverCollection() *mongo.Collection
 	GetDatabase() *mongo.Database
-	FindNearestDriver(location internal.Coordinates) error
-	BulkCreateDrivers(locations []internal.Location) error
+	FindNearestDriver(location internal.Coordinates) (internal.Model, error)
+	BulkCreateDrivers(locations []internal.Model) error
 	FlushLocations() error
-	FindLocations() ([]*internal.Location, error)
+	FindLocations() ([]*internal.Model, error)
 	CreateIndexForGeoJSON() error
 	MigrateWithCSVData() error
 }
@@ -47,26 +47,43 @@ func NewMongoDB(config pkg.MongoDBConfig) MongoDBInterface {
 	}
 }
 
-func (m *MongoDB) FindNearestDriver(location internal.Coordinates) error {
-	filter := bson.M{
-		"location": bson.M{
-			"$near": bson.M{
-				"$geometry": bson.M{
+func (m *MongoDB) FindNearestDriver(location internal.Coordinates) (internal.Model, error) {
+
+	var driver []internal.Model
+
+	// Find the nearest driver and aggregate with the distance
+	aggregate := mongo.Pipeline{
+		{
+			{"$geoNear", bson.M{
+				"near": bson.M{
 					"type":        "Point",
 					"coordinates": []float64{location.Longitude, location.Latitude},
 				},
-			},
+				"distanceField": "distance",
+				"maxDistance":   100000,
+				"spherical":     true,
+			}},
 		},
 	}
 
-	if err := m.GetDriverCollection().FindOne(CTX, filter).Decode(&location); err != nil {
-		return err
+	cursor, err := m.GetDriverCollection().Aggregate(CTX, aggregate)
+	if err != nil {
+		return internal.Model{}, err
 	}
 
-	return nil
+	if cursor.RemainingBatchLength() == 0 {
+		return internal.Model{}, pkg.ErrDriverNotFound
+	}
+
+	if err = cursor.All(CTX, &driver); err != nil {
+		return internal.Model{}, err
+	}
+
+	return driver[0], nil
+
 }
 
-func (m *MongoDB) BulkCreateDrivers(locations []internal.Location) error {
+func (m *MongoDB) BulkCreateDrivers(locations []internal.Model) error {
 	var drivers []interface{}
 	for _, location := range locations {
 		drivers = append(drivers, location)
@@ -115,8 +132,8 @@ func (m *MongoDB) FlushLocations() error {
 	return nil
 }
 
-func (m *MongoDB) FindLocations() ([]*internal.Location, error) {
-	var locations []*internal.Location
+func (m *MongoDB) FindLocations() ([]*internal.Model, error) {
+	var locations []*internal.Model
 
 	cursor, err := m.GetDriverCollection().Find(CTX, bson.M{})
 	if cursor.RemainingBatchLength() == 0 {

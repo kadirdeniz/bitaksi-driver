@@ -48,9 +48,9 @@ var _ = Describe("Fiber Suite", func() {
 	Context("Get nearest drivers", func() {
 		When("Drivers are found", func() {
 			It("Should return a list of drivers", func() {
-				var responseObject internal.Location
+				var responseObject internal.Model
 
-				mockRepository.EXPECT().FindNearestDriver(gomock.Any()).Return(mock.Location, nil).Times(1)
+				mockRepository.EXPECT().FindNearestDriver(gomock.Any()).Return(mock.LocationModel, nil).Times(1)
 
 				handler := NewHandler(mockRepository)
 
@@ -75,13 +75,13 @@ var _ = Describe("Fiber Suite", func() {
 				err = json.Unmarshal(body, &responseObject)
 				Expect(err).NotTo(HaveOccurred())
 
-				Expect(responseObject).Should(Equal(mock.Location))
+				Expect(responseObject).Should(Equal(mock.LocationModel))
 			})
 		})
 
 		When("Drivers are not found", func() {
 			It("Should return an error", func() {
-				mockRepository.EXPECT().FindNearestDriver(gomock.Any()).Return(internal.Location{}, pkg.ErrDriverNotFound).Times(1)
+				mockRepository.EXPECT().FindNearestDriver(gomock.Any()).Return(internal.Model{}, pkg.ErrDriverNotFound).Times(1)
 
 				handler := NewHandler(mockRepository)
 

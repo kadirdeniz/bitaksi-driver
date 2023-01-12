@@ -78,7 +78,7 @@ func (h *Handler) GetNearestDriver(c *fiber.Ctx) error {
 
 func (h *Handler) BulkCreateDrivers(c *fiber.Ctx) error {
 
-	var drivers []internal.Location
+	var drivers []internal.Model
 
 	err := c.BodyParser(&drivers)
 	if err != nil {
