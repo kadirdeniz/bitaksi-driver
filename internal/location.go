@@ -4,8 +4,8 @@ import "go.mongodb.org/mongo-driver/bson/primitive"
 
 type Model struct {
 	ID       primitive.ObjectID `bson:"_id,omitempty" json:"id"`
-	Location `bson:"location" json:"location"`
-	Distance float64 `bson:"omitempty" json:"distance"`
+	Location Location           `bson:"location" json:"location"`
+	Distance float64            `bson:"omitempty" json:"distance"`
 }
 
 type Location struct {

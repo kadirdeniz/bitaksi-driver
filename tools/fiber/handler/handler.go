@@ -73,7 +73,11 @@ func (h *Handler) GetNearestDriver(c *fiber.Ctx) error {
 		return c.Status(fiber.StatusInternalServerError).JSON(pkg.ErrorResponse{Error: pkg.ErrInternalServer.Error()})
 	}
 
-	return c.Status(fiber.StatusOK).JSON(driver)
+	return c.Status(fiber.StatusOK).JSON(fiber.Map{
+		"id":          driver.ID,
+		"distance":    driver.Distance,
+		"coordinates": driver.Location.Coordinates,
+	})
 }
 
 func (h *Handler) BulkCreateDrivers(c *fiber.Ctx) error {

@@ -23,15 +23,21 @@
           "Content-Type": "application/json"
         },
         "body": {
-          "coordinates": [
-            51.507351,
-            -0.127758
-          ],
           "distance": "0",
-          "driver_id": "132123123"
+          "id": "132123123",
+          "location": {
+            "coordinates": [
+              51.507351,
+              -0.127758
+            ],
+            "type": "Point"
+          }
         },
         "matchingRules": {
-          "$.body.coordinates": {
+          "$.body.location": {
+            "match": "type"
+          },
+          "$.body.location.coordinates": {
             "match": "type"
           }
         }

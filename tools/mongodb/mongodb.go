@@ -6,6 +6,7 @@ import (
 	"driver/pkg"
 	"driver/tools/zap"
 	"go.mongodb.org/mongo-driver/bson"
+	"go.mongodb.org/mongo-driver/bson/primitive"
 	"go.mongodb.org/mongo-driver/mongo"
 	"go.mongodb.org/mongo-driver/mongo/options"
 )
@@ -86,7 +87,10 @@ func (m *MongoDB) FindNearestDriver(location internal.Coordinates) (internal.Mod
 func (m *MongoDB) BulkCreateDrivers(locations []internal.Model) error {
 	var drivers []interface{}
 	for _, location := range locations {
-		drivers = append(drivers, location)
+		drivers = append(drivers, internal.Model{
+			ID:       primitive.NewObjectID(),
+			Location: location.Location,
+		})
 	}
 
 	if _, err := m.GetDriverCollection().InsertMany(CTX, drivers); err != nil {

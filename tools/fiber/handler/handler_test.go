@@ -75,7 +75,14 @@ var _ = Describe("Fiber Suite", func() {
 				err = json.Unmarshal(body, &responseObject)
 				Expect(err).NotTo(HaveOccurred())
 
-				Expect(responseObject).Should(Equal(mock.LocationModel))
+				// Todo: check the response body
+				Expect(responseObject).Should(Equal(internal.Model{
+					ID: mock.LocationModel.ID,
+					Location: internal.Location{
+						Type:        mock.LocationModel.Location.Type,
+						Coordinates: mock.LocationModel.Location.Coordinates,
+					},
+				}))
 			})
 		})
 
