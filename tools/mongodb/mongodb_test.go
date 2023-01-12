@@ -1,6 +1,7 @@
 package mongodb_test
 
 import (
+	"driver/pkg"
 	"driver/test/mock"
 	"driver/tools/dockertest"
 	"driver/tools/mongodb"
@@ -27,7 +28,7 @@ var _ = Describe("MongoDB", Ordered, func() {
 		err := dockerContainer.RunMongoDB(mongoConfig)
 		Expect(err).Should(BeNil())
 
-		mongodb.NewMongoDB(mongoConfig).FlushUsers()
+		mongodb.NewMongoDB(mongoConfig).FlushLocations()
 	})
 
 	AfterAll(func() {
@@ -64,4 +65,28 @@ var _ = Describe("MongoDB", Ordered, func() {
 		})
 	})
 
+	Context("BulkCreateDrivers", func() {
+		It("should be success", func() {
+			err := mongo.BulkCreateDrivers(mock.BulkCreateDriversRequest(20))
+			Expect(err).Should(BeNil())
+
+			drivers, err := mongo.FindLocations()
+			Expect(err).Should(BeNil())
+			Expect(len(drivers)).Should(Equal(20))
+		})
+	})
+
+	Context("Flush Locations", func() {
+		It("should delete locations", func() {
+			err := mongo.FlushLocations()
+			Expect(err).Should(BeNil())
+		})
+
+		It("shouldnt return locations", func() {
+			users, err := mongo.FindLocations()
+			Expect(err).ShouldNot(BeNil())
+			Expect(err).Should(Equal(pkg.ErrDriverNotFound))
+			Expect(users).Should(BeNil())
+		})
+	})
 })
