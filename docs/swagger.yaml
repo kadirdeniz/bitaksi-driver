@@ -1,0 +1,141 @@
+definitions:
+  internal.Location:
+    properties:
+      coordinates:
+        items:
+          type: number
+        type: array
+      type:
+        type: string
+    type: object
+  internal.Model:
+    properties:
+      distance:
+        type: number
+      id:
+        type: string
+      location:
+        $ref: '#/definitions/internal.Location'
+    type: object
+  pkg.ErrorResponse:
+    properties:
+      error:
+        type: string
+    type: object
+  pkg.SuccessResponse:
+    properties:
+      success:
+        type: string
+    type: object
+info:
+  contact: {}
+paths:
+  /api/v1/drivers:
+    post:
+      consumes:
+      - application/json
+      description: Check if api key is valid
+      produces:
+      - application/json
+      responses:
+        "200":
+          description: OK
+          schema:
+            $ref: '#/definitions/pkg.SuccessResponse'
+        "401":
+          description: Unauthorized
+          schema:
+            $ref: '#/definitions/pkg.ErrorResponse'
+      summary: Is api key valid
+      tags:
+      - Api Key Middleware
+  /api/v1/drivers/nearest:
+    get:
+      consumes:
+      - application/json
+      description: Check if api key is valid
+      produces:
+      - application/json
+      responses:
+        "200":
+          description: OK
+          schema:
+            $ref: '#/definitions/pkg.SuccessResponse'
+        "401":
+          description: Unauthorized
+          schema:
+            $ref: '#/definitions/pkg.ErrorResponse'
+      summary: Is api key valid
+      tags:
+      - Api Key Middleware
+  /drivers:
+    post:
+      consumes:
+      - application/json
+      description: Bulk create drivers
+      parameters:
+      - description: Drivers
+        in: body
+        name: drivers
+        required: true
+        schema:
+          items:
+            $ref: '#/definitions/internal.Model'
+          type: array
+      produces:
+      - application/json
+      responses:
+        "200":
+          description: OK
+          schema:
+            $ref: '#/definitions/pkg.SuccessResponse'
+        "400":
+          description: Bad Request
+          schema:
+            $ref: '#/definitions/pkg.ErrorResponse'
+        "500":
+          description: Internal Server Error
+          schema:
+            $ref: '#/definitions/pkg.ErrorResponse'
+      summary: Bulk create drivers
+      tags:
+      - Driver
+  /drivers/nearest:
+    get:
+      consumes:
+      - application/json
+      description: Get nearest driver
+      parameters:
+      - description: Latitude
+        in: query
+        name: lat
+        required: true
+        type: string
+      - description: Longitude
+        in: query
+        name: long
+        required: true
+        type: string
+      produces:
+      - application/json
+      responses:
+        "200":
+          description: OK
+          schema:
+            $ref: '#/definitions/pkg.SuccessResponse'
+        "400":
+          description: Bad Request
+          schema:
+            $ref: '#/definitions/pkg.ErrorResponse'
+        "404":
+          description: Not Found
+          schema:
+            $ref: '#/definitions/pkg.ErrorResponse'
+        "500":
+          description: Internal Server Error
+          schema:
+            $ref: '#/definitions/pkg.ErrorResponse'
+      summary: Get nearest driver
+      tags:
+      - Driver
+swagger: "2.0"

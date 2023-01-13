@@ -1,0 +1,303 @@
+{
+	"info": {
+		"_postman_id": "18cc66e9-29db-4fdd-8012-7f87640f4e95",
+		"name": "Driver Collection",
+		"schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json",
+		"_exporter_id": "24768648"
+	},
+	"item": [
+		{
+			"name": "Create Bulk Locations",
+			"request": {
+				"method": "POST",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "[\n    {\n        \"location\":{\n            \"type\":\"Point\",\n            \"coordinates\":[1.00,1.00]\n        }\n    },\n        {\n                    \"location\":{\n            \"type\":\"Point\",\n            \"coordinates\":[1.00,1.00]\n        }\n        }\n]",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "http://localhost:8001/api/V1/drivers?api_key=1234567890",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "8001",
+					"path": [
+						"api",
+						"V1",
+						"drivers"
+					],
+					"query": [
+						{
+							"key": "api_key",
+							"value": "1234567890"
+						}
+					]
+				}
+			},
+			"response": [
+				{
+					"name": "Create Bulk Locations When Limit Exceed",
+					"originalRequest": {
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "[\n    {\n        \"type\":\"Point\",\n        \"coordinates\":[1.00,1.00]\n    },\n        {\n        \"type\":\"Point\",\n        \"coordinates\":[1.00,1.00]\n    },\n        {\n        \"type\":\"Point\",\n        \"coordinates\":[1.00,1.00]\n    },\n        {\n        \"type\":\"Point\",\n        \"coordinates\":[1.00,1.00]\n    },\n    {\n        \"type\":\"Point\",\n        \"coordinates\":[1.00,1.00]\n    },\n        {\n        \"type\":\"Point\",\n        \"coordinates\":[1.00,1.00]\n    },\n        {\n        \"type\":\"Point\",\n        \"coordinates\":[1.00,1.00]\n    },\n        {\n        \"type\":\"Point\",\n        \"coordinates\":[1.00,1.00]\n    },\n    {\n        \"type\":\"Point\",\n        \"coordinates\":[1.00,1.00]\n    },\n        {\n        \"type\":\"Point\",\n        \"coordinates\":[1.00,1.00]\n    },\n        {\n        \"type\":\"Point\",\n        \"coordinates\":[1.00,1.00]\n    },\n        {\n        \"type\":\"Point\",\n        \"coordinates\":[1.00,1.00]\n    },\n    {\n        \"type\":\"Point\",\n        \"coordinates\":[1.00,1.00]\n    },\n        {\n        \"type\":\"Point\",\n        \"coordinates\":[1.00,1.00]\n    },\n        {\n        \"type\":\"Point\",\n        \"coordinates\":[1.00,1.00]\n    },\n        {\n        \"type\":\"Point\",\n        \"coordinates\":[1.00,1.00]\n    },\n    {\n        \"type\":\"Point\",\n        \"coordinates\":[1.00,1.00]\n    },\n        {\n        \"type\":\"Point\",\n        \"coordinates\":[1.00,1.00]\n    },\n        {\n        \"type\":\"Point\",\n        \"coordinates\":[1.00,1.00]\n    },\n        {\n        \"type\":\"Point\",\n        \"coordinates\":[1.00,1.00]\n    },\n    {\n        \"type\":\"Point\",\n        \"coordinates\":[1.00,1.00]\n    },\n        {\n        \"type\":\"Point\",\n        \"coordinates\":[1.00,1.00]\n    },\n        {\n        \"type\":\"Point\",\n        \"coordinates\":[1.00,1.00]\n    },\n        {\n        \"type\":\"Point\",\n        \"coordinates\":[1.00,1.00]\n    },\n    {\n        \"type\":\"Point\",\n        \"coordinates\":[1.00,1.00]\n    },\n        {\n        \"type\":\"Point\",\n        \"coordinates\":[1.00,1.00]\n    },\n        {\n        \"type\":\"Point\",\n        \"coordinates\":[1.00,1.00]\n    },\n        {\n        \"type\":\"Point\",\n        \"coordinates\":[1.00,1.00]\n    },\n    {\n        \"type\":\"Point\",\n        \"coordinates\":[1.00,1.00]\n    },\n        {\n        \"type\":\"Point\",\n        \"coordinates\":[1.00,1.00]\n    },\n        {\n        \"type\":\"Point\",\n        \"coordinates\":[1.00,1.00]\n    },\n        {\n        \"type\":\"Point\",\n        \"coordinates\":[1.00,1.00]\n    },\n    {\n        \"type\":\"Point\",\n        \"coordinates\":[1.00,1.00]\n    },\n        {\n        \"type\":\"Point\",\n        \"coordinates\":[1.00,1.00]\n    },\n        {\n        \"type\":\"Point\",\n        \"coordinates\":[1.00,1.00]\n    },\n        {\n        \"type\":\"Point\",\n        \"coordinates\":[1.00,1.00]\n    },\n    {\n        \"type\":\"Point\",\n        \"coordinates\":[1.00,1.00]\n    },\n        {\n        \"type\":\"Point\",\n        \"coordinates\":[1.00,1.00]\n    },\n        {\n        \"type\":\"Point\",\n        \"coordinates\":[1.00,1.00]\n    },\n        {\n        \"type\":\"Point\",\n        \"coordinates\":[1.00,1.00]\n    },\n    {\n        \"type\":\"Point\",\n        \"coordinates\":[1.00,1.00]\n    },\n        {\n        \"type\":\"Point\",\n        \"coordinates\":[1.00,1.00]\n    },\n        {\n        \"type\":\"Point\",\n        \"coordinates\":[1.00,1.00]\n    },\n        {\n        \"type\":\"Point\",\n        \"coordinates\":[1.00,1.00]\n    },\n    {\n        \"type\":\"Point\",\n        \"coordinates\":[1.00,1.00]\n    },\n        {\n        \"type\":\"Point\",\n        \"coordinates\":[1.00,1.00]\n    },\n        {\n        \"type\":\"Point\",\n        \"coordinates\":[1.00,1.00]\n    },\n        {\n        \"type\":\"Point\",\n        \"coordinates\":[1.00,1.00]\n    },\n    {\n        \"type\":\"Point\",\n        \"coordinates\":[1.00,1.00]\n    },\n        {\n        \"type\":\"Point\",\n        \"coordinates\":[1.00,1.00]\n    },\n        {\n        \"type\":\"Point\",\n        \"coordinates\":[1.00,1.00]\n    },\n        {\n        \"type\":\"Point\",\n        \"coordinates\":[1.00,1.00]\n    },\n    {\n        \"type\":\"Point\",\n        \"coordinates\":[1.00,1.00]\n    },\n        {\n        \"type\":\"Point\",\n        \"coordinates\":[1.00,1.00]\n    },\n        {\n        \"type\":\"Point\",\n        \"coordinates\":[1.00,1.00]\n    },\n        {\n        \"type\":\"Point\",\n        \"coordinates\":[1.00,1.00]\n    },\n    {\n        \"type\":\"Point\",\n        \"coordinates\":[1.00,1.00]\n    },\n        {\n        \"type\":\"Point\",\n        \"coordinates\":[1.00,1.00]\n    },\n        {\n        \"type\":\"Point\",\n        \"coordinates\":[1.00,1.00]\n    },\n        {\n        \"type\":\"Point\",\n        \"coordinates\":[1.00,1.00]\n    },\n    {\n        \"type\":\"Point\",\n        \"coordinates\":[1.00,1.00]\n    },\n        {\n        \"type\":\"Point\",\n        \"coordinates\":[1.00,1.00]\n    },\n        {\n        \"type\":\"Point\",\n        \"coordinates\":[1.00,1.00]\n    },\n        {\n        \"type\":\"Point\",\n        \"coordinates\":[1.00,1.00]\n    },\n    {\n        \"type\":\"Point\",\n        \"coordinates\":[1.00,1.00]\n    },\n        {\n        \"type\":\"Point\",\n        \"coordinates\":[1.00,1.00]\n    },\n        {\n        \"type\":\"Point\",\n        \"coordinates\":[1.00,1.00]\n    },\n        {\n        \"type\":\"Point\",\n        \"coordinates\":[1.00,1.00]\n    },\n    {\n        \"type\":\"Point\",\n        \"coordinates\":[1.00,1.00]\n    },\n        {\n        \"type\":\"Point\",\n        \"coordinates\":[1.00,1.00]\n    },\n        {\n        \"type\":\"Point\",\n        \"coordinates\":[1.00,1.00]\n    },\n        {\n        \"type\":\"Point\",\n        \"coordinates\":[1.00,1.00]\n    },\n    {\n        \"type\":\"Point\",\n        \"coordinates\":[1.00,1.00]\n    },\n        {\n        \"type\":\"Point\",\n        \"coordinates\":[1.00,1.00]\n    },\n        {\n        \"type\":\"Point\",\n        \"coordinates\":[1.00,1.00]\n    },\n        {\n        \"type\":\"Point\",\n        \"coordinates\":[1.00,1.00]\n    },\n    {\n        \"type\":\"Point\",\n        \"coordinates\":[1.00,1.00]\n    },\n        {\n        \"type\":\"Point\",\n        \"coordinates\":[1.00,1.00]\n    },\n        {\n        \"type\":\"Point\",\n        \"coordinates\":[1.00,1.00]\n    },\n        {\n        \"type\":\"Point\",\n        \"coordinates\":[1.00,1.00]\n    },\n    {\n        \"type\":\"Point\",\n        \"coordinates\":[1.00,1.00]\n    },\n        {\n        \"type\":\"Point\",\n        \"coordinates\":[1.00,1.00]\n    },\n        {\n        \"type\":\"Point\",\n        \"coordinates\":[1.00,1.00]\n    },\n        {\n        \"type\":\"Point\",\n        \"coordinates\":[1.00,1.00]\n    },\n    {\n        \"type\":\"Point\",\n        \"coordinates\":[1.00,1.00]\n    },\n        {\n        \"type\":\"Point\",\n        \"coordinates\":[1.00,1.00]\n    },\n        {\n        \"type\":\"Point\",\n        \"coordinates\":[1.00,1.00]\n    },\n        {\n        \"type\":\"Point\",\n        \"coordinates\":[1.00,1.00]\n    },\n    {\n        \"type\":\"Point\",\n        \"coordinates\":[1.00,1.00]\n    },\n        {\n        \"type\":\"Point\",\n        \"coordinates\":[1.00,1.00]\n    },\n        {\n        \"type\":\"Point\",\n        \"coordinates\":[1.00,1.00]\n    },\n        {\n        \"type\":\"Point\",\n        \"coordinates\":[1.00,1.00]\n    },\n    {\n        \"type\":\"Point\",\n        \"coordinates\":[1.00,1.00]\n    },\n        {\n        \"type\":\"Point\",\n        \"coordinates\":[1.00,1.00]\n    },\n        {\n        \"type\":\"Point\",\n        \"coordinates\":[1.00,1.00]\n    },\n        {\n        \"type\":\"Point\",\n        \"coordinates\":[1.00,1.00]\n    },\n    {\n        \"type\":\"Point\",\n        \"coordinates\":[1.00,1.00]\n    },\n        {\n        \"type\":\"Point\",\n        \"coordinates\":[1.00,1.00]\n    },\n        {\n        \"type\":\"Point\",\n        \"coordinates\":[1.00,1.00]\n    },\n        {\n        \"type\":\"Point\",\n        \"coordinates\":[1.00,1.00]\n    },\n    {\n        \"type\":\"Point\",\n        \"coordinates\":[1.00,1.00]\n    },\n        {\n        \"type\":\"Point\",\n        \"coordinates\":[1.00,1.00]\n    },\n        {\n        \"type\":\"Point\",\n        \"coordinates\":[1.00,1.00]\n    },\n        {\n        \"type\":\"Point\",\n        \"coordinates\":[1.00,1.00]\n    },\n    {\n        \"type\":\"Point\",\n        \"coordinates\":[1.00,1.00]\n    },\n        {\n        \"type\":\"Point\",\n        \"coordinates\":[1.00,1.00]\n    },\n        {\n        \"type\":\"Point\",\n        \"coordinates\":[1.00,1.00]\n    },\n        {\n        \"type\":\"Point\",\n        \"coordinates\":[1.00,1.00]\n    },\n    {\n        \"type\":\"Point\",\n        \"coordinates\":[1.00,1.00]\n    },\n        {\n        \"type\":\"Point\",\n        \"coordinates\":[1.00,1.00]\n    },\n        {\n        \"type\":\"Point\",\n        \"coordinates\":[1.00,1.00]\n    },\n        {\n        \"type\":\"Point\",\n        \"coordinates\":[1.00,1.00]\n    },\n    {\n        \"type\":\"Point\",\n        \"coordinates\":[1.00,1.00]\n    },\n        {\n        \"type\":\"Point\",\n        \"coordinates\":[1.00,1.00]\n    },\n        {\n        \"type\":\"Point\",\n        \"coordinates\":[1.00,1.00]\n    },\n        {\n        \"type\":\"Point\",\n        \"coordinates\":[1.00,1.00]\n    },\n    {\n        \"type\":\"Point\",\n        \"coordinates\":[1.00,1.00]\n    },\n        {\n        \"type\":\"Point\",\n        \"coordinates\":[1.00,1.00]\n    },\n        {\n        \"type\":\"Point\",\n        \"coordinates\":[1.00,1.00]\n    },\n        {\n        \"type\":\"Point\",\n        \"coordinates\":[1.00,1.00]\n    },\n    {\n        \"type\":\"Point\",\n        \"coordinates\":[1.00,1.00]\n    },\n        {\n        \"type\":\"Point\",\n        \"coordinates\":[1.00,1.00]\n    },\n        {\n        \"type\":\"Point\",\n        \"coordinates\":[1.00,1.00]\n    },\n        {\n        \"type\":\"Point\",\n        \"coordinates\":[1.00,1.00]\n    },\n    {\n        \"type\":\"Point\",\n        \"coordinates\":[1.00,1.00]\n    },\n        {\n        \"type\":\"Point\",\n        \"coordinates\":[1.00,1.00]\n    },\n        {\n        \"type\":\"Point\",\n        \"coordinates\":[1.00,1.00]\n    },\n        {\n        \"type\":\"Point\",\n        \"coordinates\":[1.00,1.00]\n    },\n    {\n        \"type\":\"Point\",\n        \"coordinates\":[1.00,1.00]\n    },\n        {\n        \"type\":\"Point\",\n        \"coordinates\":[1.00,1.00]\n    },\n        {\n        \"type\":\"Point\",\n        \"coordinates\":[1.00,1.00]\n    },\n        {\n        \"type\":\"Point\",\n        \"coordinates\":[1.00,1.00]\n    },\n    {\n        \"type\":\"Point\",\n        \"coordinates\":[1.00,1.00]\n    },\n        {\n        \"type\":\"Point\",\n        \"coordinates\":[1.00,1.00]\n    },\n        {\n        \"type\":\"Point\",\n        \"coordinates\":[1.00,1.00]\n    },\n        {\n        \"type\":\"Point\",\n        \"coordinates\":[1.00,1.00]\n    },\n    {\n        \"type\":\"Point\",\n        \"coordinates\":[1.00,1.00]\n    },\n        {\n        \"type\":\"Point\",\n        \"coordinates\":[1.00,1.00]\n    },\n        {\n        \"type\":\"Point\",\n        \"coordinates\":[1.00,1.00]\n    },\n        {\n        \"type\":\"Point\",\n        \"coordinates\":[1.00,1.00]\n    },\n    {\n        \"type\":\"Point\",\n        \"coordinates\":[1.00,1.00]\n    },\n        {\n        \"type\":\"Point\",\n        \"coordinates\":[1.00,1.00]\n    },\n        {\n        \"type\":\"Point\",\n        \"coordinates\":[1.00,1.00]\n    },\n        {\n        \"type\":\"Point\",\n        \"coordinates\":[1.00,1.00]\n    },\n    {\n        \"type\":\"Point\",\n        \"coordinates\":[1.00,1.00]\n    },\n        {\n        \"type\":\"Point\",\n        \"coordinates\":[1.00,1.00]\n    },\n        {\n        \"type\":\"Point\",\n        \"coordinates\":[1.00,1.00]\n    },\n        {\n        \"type\":\"Point\",\n        \"coordinates\":[1.00,1.00]\n    },\n    {\n        \"type\":\"Point\",\n        \"coordinates\":[1.00,1.00]\n    },\n        {\n        \"type\":\"Point\",\n        \"coordinates\":[1.00,1.00]\n    },\n        {\n        \"type\":\"Point\",\n        \"coordinates\":[1.00,1.00]\n    },\n        {\n        \"type\":\"Point\",\n        \"coordinates\":[1.00,1.00]\n    },\n    {\n        \"type\":\"Point\",\n        \"coordinates\":[1.00,1.00]\n    },\n        {\n        \"type\":\"Point\",\n        \"coordinates\":[1.00,1.00]\n    },\n        {\n        \"type\":\"Point\",\n        \"coordinates\":[1.00,1.00]\n    },\n        {\n        \"type\":\"Point\",\n        \"coordinates\":[1.00,1.00]\n    },\n    {\n        \"type\":\"Point\",\n        \"coordinates\":[1.00,1.00]\n    },\n        {\n        \"type\":\"Point\",\n        \"coordinates\":[1.00,1.00]\n    },\n        {\n        \"type\":\"Point\",\n        \"coordinates\":[1.00,1.00]\n    },\n        {\n        \"type\":\"Point\",\n        \"coordinates\":[1.00,1.00]\n    },\n    {\n        \"type\":\"Point\",\n        \"coordinates\":[1.00,1.00]\n    },\n        {\n        \"type\":\"Point\",\n        \"coordinates\":[1.00,1.00]\n    },\n        {\n        \"type\":\"Point\",\n        \"coordinates\":[1.00,1.00]\n    },\n        {\n        \"type\":\"Point\",\n        \"coordinates\":[1.00,1.00]\n    },\n    {\n        \"type\":\"Point\",\n        \"coordinates\":[1.00,1.00]\n    },\n        {\n        \"type\":\"Point\",\n        \"coordinates\":[1.00,1.00]\n    },\n        {\n        \"type\":\"Point\",\n        \"coordinates\":[1.00,1.00]\n    },\n        {\n        \"type\":\"Point\",\n        \"coordinates\":[1.00,1.00]\n    },\n    {\n        \"type\":\"Point\",\n        \"coordinates\":[1.00,1.00]\n    },\n        {\n        \"type\":\"Point\",\n        \"coordinates\":[1.00,1.00]\n    },\n        {\n        \"type\":\"Point\",\n        \"coordinates\":[1.00,1.00]\n    },\n        {\n        \"type\":\"Point\",\n        \"coordinates\":[1.00,1.00]\n    },\n    {\n        \"type\":\"Point\",\n        \"coordinates\":[1.00,1.00]\n    },\n        {\n        \"type\":\"Point\",\n        \"coordinates\":[1.00,1.00]\n    },\n        {\n        \"type\":\"Point\",\n        \"coordinates\":[1.00,1.00]\n    },\n        {\n        \"type\":\"Point\",\n        \"coordinates\":[1.00,1.00]\n    },\n    {\n        \"type\":\"Point\",\n        \"coordinates\":[1.00,1.00]\n    },\n        {\n        \"type\":\"Point\",\n        \"coordinates\":[1.00,1.00]\n    },\n        {\n        \"type\":\"Point\",\n        \"coordinates\":[1.00,1.00]\n    },\n        {\n        \"type\":\"Point\",\n        \"coordinates\":[1.00,1.00]\n    },\n    {\n        \"type\":\"Point\",\n        \"coordinates\":[1.00,1.00]\n    },\n        {\n        \"type\":\"Point\",\n        \"coordinates\":[1.00,1.00]\n    },\n        {\n        \"type\":\"Point\",\n        \"coordinates\":[1.00,1.00]\n    },\n        {\n        \"type\":\"Point\",\n        \"coordinates\":[1.00,1.00]\n    },\n    {\n        \"type\":\"Point\",\n        \"coordinates\":[1.00,1.00]\n    },\n        {\n        \"type\":\"Point\",\n        \"coordinates\":[1.00,1.00]\n    },\n        {\n        \"type\":\"Point\",\n        \"coordinates\":[1.00,1.00]\n    },\n        {\n        \"type\":\"Point\",\n        \"coordinates\":[1.00,1.00]\n    },\n    {\n        \"type\":\"Point\",\n        \"coordinates\":[1.00,1.00]\n    },\n        {\n        \"type\":\"Point\",\n        \"coordinates\":[1.00,1.00]\n    },\n        {\n        \"type\":\"Point\",\n        \"coordinates\":[1.00,1.00]\n    },\n        {\n        \"type\":\"Point\",\n        \"coordinates\":[1.00,1.00]\n    },\n    {\n        \"type\":\"Point\",\n        \"coordinates\":[1.00,1.00]\n    },\n        {\n        \"type\":\"Point\",\n        \"coordinates\":[1.00,1.00]\n    },\n        {\n        \"type\":\"Point\",\n        \"coordinates\":[1.00,1.00]\n    },\n        {\n        \"type\":\"Point\",\n        \"coordinates\":[1.00,1.00]\n    },\n    {\n        \"type\":\"Point\",\n        \"coordinates\":[1.00,1.00]\n    },\n        {\n        \"type\":\"Point\",\n        \"coordinates\":[1.00,1.00]\n    },\n        {\n        \"type\":\"Point\",\n        \"coordinates\":[1.00,1.00]\n    },\n        {\n        \"type\":\"Point\",\n        \"coordinates\":[1.00,1.00]\n    },\n    {\n        \"type\":\"Point\",\n        \"coordinates\":[1.00,1.00]\n    },\n        {\n        \"type\":\"Point\",\n        \"coordinates\":[1.00,1.00]\n    },\n        {\n        \"type\":\"Point\",\n        \"coordinates\":[1.00,1.00]\n    },\n        {\n        \"type\":\"Point\",\n        \"coordinates\":[1.00,1.00]\n    },\n    {\n        \"type\":\"Point\",\n        \"coordinates\":[1.00,1.00]\n    },\n        {\n        \"type\":\"Point\",\n        \"coordinates\":[1.00,1.00]\n    },\n        {\n        \"type\":\"Point\",\n        \"coordinates\":[1.00,1.00]\n    },\n        {\n        \"type\":\"Point\",\n        \"coordinates\":[1.00,1.00]\n    },\n    {\n        \"type\":\"Point\",\n        \"coordinates\":[1.00,1.00]\n    },\n        {\n        \"type\":\"Point\",\n        \"coordinates\":[1.00,1.00]\n    },\n        {\n        \"type\":\"Point\",\n        \"coordinates\":[1.00,1.00]\n    },\n        {\n        \"type\":\"Point\",\n        \"coordinates\":[1.00,1.00]\n    },\n    {\n        \"type\":\"Point\",\n        \"coordinates\":[1.00,1.00]\n    },\n        {\n        \"type\":\"Point\",\n        \"coordinates\":[1.00,1.00]\n    },\n        {\n        \"type\":\"Point\",\n        \"coordinates\":[1.00,1.00]\n    },\n        {\n        \"type\":\"Point\",\n        \"coordinates\":[1.00,1.00]\n    },\n    {\n        \"type\":\"Point\",\n        \"coordinates\":[1.00,1.00]\n    },\n        {\n        \"type\":\"Point\",\n        \"coordinates\":[1.00,1.00]\n    },\n        {\n        \"type\":\"Point\",\n        \"coordinates\":[1.00,1.00]\n    },\n        {\n        \"type\":\"Point\",\n        \"coordinates\":[1.00,1.00]\n    },\n    {\n        \"type\":\"Point\",\n        \"coordinates\":[1.00,1.00]\n    },\n        {\n        \"type\":\"Point\",\n        \"coordinates\":[1.00,1.00]\n    },\n        {\n        \"type\":\"Point\",\n        \"coordinates\":[1.00,1.00]\n    },\n        {\n        \"type\":\"Point\",\n        \"coordinates\":[1.00,1.00]\n    },\n    {\n        \"type\":\"Point\",\n        \"coordinates\":[1.00,1.00]\n    },\n        {\n        \"type\":\"Point\",\n        \"coordinates\":[1.00,1.00]\n    },\n        {\n        \"type\":\"Point\",\n        \"coordinates\":[1.00,1.00]\n    },\n        {\n        \"type\":\"Point\",\n        \"coordinates\":[1.00,1.00]\n    },\n    {\n        \"type\":\"Point\",\n        \"coordinates\":[1.00,1.00]\n    },\n        {\n        \"type\":\"Point\",\n        \"coordinates\":[1.00,1.00]\n    },\n        {\n        \"type\":\"Point\",\n        \"coordinates\":[1.00,1.00]\n    },\n        {\n        \"type\":\"Point\",\n        \"coordinates\":[1.00,1.00]\n    },\n    {\n        \"type\":\"Point\",\n        \"coordinates\":[1.00,1.00]\n    },\n        {\n        \"type\":\"Point\",\n        \"coordinates\":[1.00,1.00]\n    },\n        {\n        \"type\":\"Point\",\n        \"coordinates\":[1.00,1.00]\n    },\n        {\n        \"type\":\"Point\",\n        \"coordinates\":[1.00,1.00]\n    },\n    {\n        \"type\":\"Point\",\n        \"coordinates\":[1.00,1.00]\n    },\n        {\n        \"type\":\"Point\",\n        \"coordinates\":[1.00,1.00]\n    },\n        {\n        \"type\":\"Point\",\n        \"coordinates\":[1.00,1.00]\n    },\n        {\n        \"type\":\"Point\",\n        \"coordinates\":[1.00,1.00]\n    },\n    {\n        \"type\":\"Point\",\n        \"coordinates\":[1.00,1.00]\n    },\n        {\n        \"type\":\"Point\",\n        \"coordinates\":[1.00,1.00]\n    },\n        {\n        \"type\":\"Point\",\n        \"coordinates\":[1.00,1.00]\n    },\n        {\n        \"type\":\"Point\",\n        \"coordinates\":[1.00,1.00]\n    },\n    {\n        \"type\":\"Point\",\n        \"coordinates\":[1.00,1.00]\n    },\n        {\n        \"type\":\"Point\",\n        \"coordinates\":[1.00,1.00]\n    },\n        {\n        \"type\":\"Point\",\n        \"coordinates\":[1.00,1.00]\n    },\n        {\n        \"type\":\"Point\",\n        \"coordinates\":[1.00,1.00]\n    },\n    {\n        \"type\":\"Point\",\n        \"coordinates\":[1.00,1.00]\n    },\n        {\n        \"type\":\"Point\",\n        \"coordinates\":[1.00,1.00]\n    },\n        {\n        \"type\":\"Point\",\n        \"coordinates\":[1.00,1.00]\n    },\n        {\n        \"type\":\"Point\",\n        \"coordinates\":[1.00,1.00]\n    },\n    {\n        \"type\":\"Point\",\n        \"coordinates\":[1.00,1.00]\n    },\n        {\n        \"type\":\"Point\",\n        \"coordinates\":[1.00,1.00]\n    },\n        {\n        \"type\":\"Point\",\n        \"coordinates\":[1.00,1.00]\n    },\n        {\n        \"type\":\"Point\",\n        \"coordinates\":[1.00,1.00]\n    }\n]",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "http://localhost:8001/api/V1/drivers?api_key=1234567890",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "8001",
+							"path": [
+								"api",
+								"V1",
+								"drivers"
+							],
+							"query": [
+								{
+									"key": "api_key",
+									"value": "1234567890"
+								}
+							]
+						}
+					},
+					"status": "Bad Request",
+					"code": 400,
+					"_postman_previewlanguage": "json",
+					"header": [
+						{
+							"key": "Date",
+							"value": "Thu, 12 Jan 2023 20:58:27 GMT"
+						},
+						{
+							"key": "Content-Type",
+							"value": "application/json"
+						},
+						{
+							"key": "Content-Length",
+							"value": "46"
+						},
+						{
+							"key": "Vary",
+							"value": "Origin"
+						},
+						{
+							"key": "Access-Control-Allow-Origin",
+							"value": "*"
+						}
+					],
+					"cookie": [],
+					"body": "{\n    \"error\": \"bulk create drivers limit exceeded\"\n}"
+				},
+				{
+					"name": "Create Bulk Locations When Api Key Invalid",
+					"originalRequest": {
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "[\n    {\n        \"type\":\"Point\",\n        \"coordinates\":[1.00,1.00]\n    },\n        {\n        \"type\":\"Point\",\n        \"coordinates\":[1.00,1.00]\n    },\n        {\n        \"type\":\"Point\",\n        \"coordinates\":[1.00,1.00]\n    },\n        {\n        \"type\":\"Point\",\n        \"coordinates\":[1.00,1.00]\n    },\n    {\n        \"type\":\"Point\",\n        \"coordinates\":[1.00,1.00]\n    },\n        {\n        \"type\":\"Point\",\n        \"coordinates\":[1.00,1.00]\n    },\n        {\n        \"type\":\"Point\",\n        \"coordinates\":[1.00,1.00]\n    },\n        {\n        \"type\":\"Point\",\n        \"coordinates\":[1.00,1.00]\n    },\n    {\n        \"type\":\"Point\",\n        \"coordinates\":[1.00,1.00]\n    },\n        {\n        \"type\":\"Point\",\n        \"coordinates\":[1.00,1.00]\n    },\n        {\n        \"type\":\"Point\",\n        \"coordinates\":[1.00,1.00]\n    },\n        {\n        \"type\":\"Point\",\n        \"coordinates\":[1.00,1.00]\n    },\n    {\n        \"type\":\"Point\",\n        \"coordinates\":[1.00,1.00]\n    },\n        {\n        \"type\":\"Point\",\n        \"coordinates\":[1.00,1.00]\n    },\n        {\n        \"type\":\"Point\",\n        \"coordinates\":[1.00,1.00]\n    },\n        {\n        \"type\":\"Point\",\n        \"coordinates\":[1.00,1.00]\n    },\n    {\n        \"type\":\"Point\",\n        \"coordinates\":[1.00,1.00]\n    },\n        {\n        \"type\":\"Point\",\n        \"coordinates\":[1.00,1.00]\n    },\n        {\n        \"type\":\"Point\",\n        \"coordinates\":[1.00,1.00]\n    },\n        {\n        \"type\":\"Point\",\n        \"coordinates\":[1.00,1.00]\n    },\n    {\n        \"type\":\"Point\",\n        \"coordinates\":[1.00,1.00]\n    },\n        {\n        \"type\":\"Point\",\n        \"coordinates\":[1.00,1.00]\n    },\n        {\n        \"type\":\"Point\",\n        \"coordinates\":[1.00,1.00]\n    },\n        {\n        \"type\":\"Point\",\n        \"coordinates\":[1.00,1.00]\n    },\n    {\n        \"type\":\"Point\",\n        \"coordinates\":[1.00,1.00]\n    },\n        {\n        \"type\":\"Point\",\n        \"coordinates\":[1.00,1.00]\n    },\n        {\n        \"type\":\"Point\",\n        \"coordinates\":[1.00,1.00]\n    },\n        {\n        \"type\":\"Point\",\n        \"coordinates\":[1.00,1.00]\n    },\n    {\n        \"type\":\"Point\",\n        \"coordinates\":[1.00,1.00]\n    },\n        {\n        \"type\":\"Point\",\n        \"coordinates\":[1.00,1.00]\n    },\n        {\n        \"type\":\"Point\",\n        \"coordinates\":[1.00,1.00]\n    },\n        {\n        \"type\":\"Point\",\n        \"coordinates\":[1.00,1.00]\n    },\n    {\n        \"type\":\"Point\",\n        \"coordinates\":[1.00,1.00]\n    },\n        {\n        \"type\":\"Point\",\n        \"coordinates\":[1.00,1.00]\n    },\n        {\n        \"type\":\"Point\",\n        \"coordinates\":[1.00,1.00]\n    },\n        {\n        \"type\":\"Point\",\n        \"coordinates\":[1.00,1.00]\n    },\n    {\n        \"type\":\"Point\",\n        \"coordinates\":[1.00,1.00]\n    },\n        {\n        \"type\":\"Point\",\n        \"coordinates\":[1.00,1.00]\n    },\n        {\n        \"type\":\"Point\",\n        \"coordinates\":[1.00,1.00]\n    },\n        {\n        \"type\":\"Point\",\n        \"coordinates\":[1.00,1.00]\n    },\n    {\n        \"type\":\"Point\",\n        \"coordinates\":[1.00,1.00]\n    },\n        {\n        \"type\":\"Point\",\n        \"coordinates\":[1.00,1.00]\n    },\n        {\n        \"type\":\"Point\",\n        \"coordinates\":[1.00,1.00]\n    },\n        {\n        \"type\":\"Point\",\n        \"coordinates\":[1.00,1.00]\n    },\n    {\n        \"type\":\"Point\",\n        \"coordinates\":[1.00,1.00]\n    },\n        {\n        \"type\":\"Point\",\n        \"coordinates\":[1.00,1.00]\n    },\n        {\n        \"type\":\"Point\",\n        \"coordinates\":[1.00,1.00]\n    },\n        {\n        \"type\":\"Point\",\n        \"coordinates\":[1.00,1.00]\n    },\n    {\n        \"type\":\"Point\",\n        \"coordinates\":[1.00,1.00]\n    },\n        {\n        \"type\":\"Point\",\n        \"coordinates\":[1.00,1.00]\n    },\n        {\n        \"type\":\"Point\",\n        \"coordinates\":[1.00,1.00]\n    },\n        {\n        \"type\":\"Point\",\n        \"coordinates\":[1.00,1.00]\n    },\n    {\n        \"type\":\"Point\",\n        \"coordinates\":[1.00,1.00]\n    },\n        {\n        \"type\":\"Point\",\n        \"coordinates\":[1.00,1.00]\n    },\n        {\n        \"type\":\"Point\",\n        \"coordinates\":[1.00,1.00]\n    },\n        {\n        \"type\":\"Point\",\n        \"coordinates\":[1.00,1.00]\n    },\n    {\n        \"type\":\"Point\",\n        \"coordinates\":[1.00,1.00]\n    },\n        {\n        \"type\":\"Point\",\n        \"coordinates\":[1.00,1.00]\n    },\n        {\n        \"type\":\"Point\",\n        \"coordinates\":[1.00,1.00]\n    },\n        {\n        \"type\":\"Point\",\n        \"coordinates\":[1.00,1.00]\n    },\n    {\n        \"type\":\"Point\",\n        \"coordinates\":[1.00,1.00]\n    },\n        {\n        \"type\":\"Point\",\n        \"coordinates\":[1.00,1.00]\n    },\n        {\n        \"type\":\"Point\",\n        \"coordinates\":[1.00,1.00]\n    },\n        {\n        \"type\":\"Point\",\n        \"coordinates\":[1.00,1.00]\n    },\n    {\n        \"type\":\"Point\",\n        \"coordinates\":[1.00,1.00]\n    },\n        {\n        \"type\":\"Point\",\n        \"coordinates\":[1.00,1.00]\n    },\n        {\n        \"type\":\"Point\",\n        \"coordinates\":[1.00,1.00]\n    },\n        {\n        \"type\":\"Point\",\n        \"coordinates\":[1.00,1.00]\n    },\n    {\n        \"type\":\"Point\",\n        \"coordinates\":[1.00,1.00]\n    },\n        {\n        \"type\":\"Point\",\n        \"coordinates\":[1.00,1.00]\n    },\n        {\n        \"type\":\"Point\",\n        \"coordinates\":[1.00,1.00]\n    },\n        {\n        \"type\":\"Point\",\n        \"coordinates\":[1.00,1.00]\n    },\n    {\n        \"type\":\"Point\",\n        \"coordinates\":[1.00,1.00]\n    },\n        {\n        \"type\":\"Point\",\n        \"coordinates\":[1.00,1.00]\n    },\n        {\n        \"type\":\"Point\",\n        \"coordinates\":[1.00,1.00]\n    },\n        {\n        \"type\":\"Point\",\n        \"coordinates\":[1.00,1.00]\n    },\n    {\n        \"type\":\"Point\",\n        \"coordinates\":[1.00,1.00]\n    },\n        {\n        \"type\":\"Point\",\n        \"coordinates\":[1.00,1.00]\n    },\n        {\n        \"type\":\"Point\",\n        \"coordinates\":[1.00,1.00]\n    },\n        {\n        \"type\":\"Point\",\n        \"coordinates\":[1.00,1.00]\n    },\n    {\n        \"type\":\"Point\",\n        \"coordinates\":[1.00,1.00]\n    },\n        {\n        \"type\":\"Point\",\n        \"coordinates\":[1.00,1.00]\n    },\n        {\n        \"type\":\"Point\",\n        \"coordinates\":[1.00,1.00]\n    },\n        {\n        \"type\":\"Point\",\n        \"coordinates\":[1.00,1.00]\n    },\n    {\n        \"type\":\"Point\",\n        \"coordinates\":[1.00,1.00]\n    },\n        {\n        \"type\":\"Point\",\n        \"coordinates\":[1.00,1.00]\n    },\n        {\n        \"type\":\"Point\",\n        \"coordinates\":[1.00,1.00]\n    },\n        {\n        \"type\":\"Point\",\n        \"coordinates\":[1.00,1.00]\n    },\n    {\n        \"type\":\"Point\",\n        \"coordinates\":[1.00,1.00]\n    },\n        {\n        \"type\":\"Point\",\n        \"coordinates\":[1.00,1.00]\n    },\n        {\n        \"type\":\"Point\",\n        \"coordinates\":[1.00,1.00]\n    },\n        {\n        \"type\":\"Point\",\n        \"coordinates\":[1.00,1.00]\n    },\n    {\n        \"type\":\"Point\",\n        \"coordinates\":[1.00,1.00]\n    },\n        {\n        \"type\":\"Point\",\n        \"coordinates\":[1.00,1.00]\n    },\n        {\n        \"type\":\"Point\",\n        \"coordinates\":[1.00,1.00]\n    },\n        {\n        \"type\":\"Point\",\n        \"coordinates\":[1.00,1.00]\n    },\n    {\n        \"type\":\"Point\",\n        \"coordinates\":[1.00,1.00]\n    },\n        {\n        \"type\":\"Point\",\n        \"coordinates\":[1.00,1.00]\n    },\n        {\n        \"type\":\"Point\",\n        \"coordinates\":[1.00,1.00]\n    },\n        {\n        \"type\":\"Point\",\n        \"coordinates\":[1.00,1.00]\n    },\n    {\n        \"type\":\"Point\",\n        \"coordinates\":[1.00,1.00]\n    },\n        {\n        \"type\":\"Point\",\n        \"coordinates\":[1.00,1.00]\n    },\n        {\n        \"type\":\"Point\",\n        \"coordinates\":[1.00,1.00]\n    },\n        {\n        \"type\":\"Point\",\n        \"coordinates\":[1.00,1.00]\n    },\n    {\n        \"type\":\"Point\",\n        \"coordinates\":[1.00,1.00]\n    },\n        {\n        \"type\":\"Point\",\n        \"coordinates\":[1.00,1.00]\n    },\n        {\n        \"type\":\"Point\",\n        \"coordinates\":[1.00,1.00]\n    },\n        {\n        \"type\":\"Point\",\n        \"coordinates\":[1.00,1.00]\n    },\n    {\n        \"type\":\"Point\",\n        \"coordinates\":[1.00,1.00]\n    },\n        {\n        \"type\":\"Point\",\n        \"coordinates\":[1.00,1.00]\n    },\n        {\n        \"type\":\"Point\",\n        \"coordinates\":[1.00,1.00]\n    },\n        {\n        \"type\":\"Point\",\n        \"coordinates\":[1.00,1.00]\n    },\n    {\n        \"type\":\"Point\",\n        \"coordinates\":[1.00,1.00]\n    },\n        {\n        \"type\":\"Point\",\n        \"coordinates\":[1.00,1.00]\n    },\n        {\n        \"type\":\"Point\",\n        \"coordinates\":[1.00,1.00]\n    },\n        {\n        \"type\":\"Point\",\n        \"coordinates\":[1.00,1.00]\n    },\n    {\n        \"type\":\"Point\",\n        \"coordinates\":[1.00,1.00]\n    },\n        {\n        \"type\":\"Point\",\n        \"coordinates\":[1.00,1.00]\n    },\n        {\n        \"type\":\"Point\",\n        \"coordinates\":[1.00,1.00]\n    },\n        {\n        \"type\":\"Point\",\n        \"coordinates\":[1.00,1.00]\n    },\n    {\n        \"type\":\"Point\",\n        \"coordinates\":[1.00,1.00]\n    },\n        {\n        \"type\":\"Point\",\n        \"coordinates\":[1.00,1.00]\n    },\n        {\n        \"type\":\"Point\",\n        \"coordinates\":[1.00,1.00]\n    },\n        {\n        \"type\":\"Point\",\n        \"coordinates\":[1.00,1.00]\n    },\n    {\n        \"type\":\"Point\",\n        \"coordinates\":[1.00,1.00]\n    },\n        {\n        \"type\":\"Point\",\n        \"coordinates\":[1.00,1.00]\n    },\n        {\n        \"type\":\"Point\",\n        \"coordinates\":[1.00,1.00]\n    },\n        {\n        \"type\":\"Point\",\n        \"coordinates\":[1.00,1.00]\n    },\n    {\n        \"type\":\"Point\",\n        \"coordinates\":[1.00,1.00]\n    },\n        {\n        \"type\":\"Point\",\n        \"coordinates\":[1.00,1.00]\n    },\n        {\n        \"type\":\"Point\",\n        \"coordinates\":[1.00,1.00]\n    },\n        {\n        \"type\":\"Point\",\n        \"coordinates\":[1.00,1.00]\n    },\n    {\n        \"type\":\"Point\",\n        \"coordinates\":[1.00,1.00]\n    },\n        {\n        \"type\":\"Point\",\n        \"coordinates\":[1.00,1.00]\n    },\n        {\n        \"type\":\"Point\",\n        \"coordinates\":[1.00,1.00]\n    },\n        {\n        \"type\":\"Point\",\n        \"coordinates\":[1.00,1.00]\n    },\n    {\n        \"type\":\"Point\",\n        \"coordinates\":[1.00,1.00]\n    },\n        {\n        \"type\":\"Point\",\n        \"coordinates\":[1.00,1.00]\n    },\n        {\n        \"type\":\"Point\",\n        \"coordinates\":[1.00,1.00]\n    },\n        {\n        \"type\":\"Point\",\n        \"coordinates\":[1.00,1.00]\n    },\n    {\n        \"type\":\"Point\",\n        \"coordinates\":[1.00,1.00]\n    },\n        {\n        \"type\":\"Point\",\n        \"coordinates\":[1.00,1.00]\n    },\n        {\n        \"type\":\"Point\",\n        \"coordinates\":[1.00,1.00]\n    },\n        {\n        \"type\":\"Point\",\n        \"coordinates\":[1.00,1.00]\n    },\n    {\n        \"type\":\"Point\",\n        \"coordinates\":[1.00,1.00]\n    },\n        {\n        \"type\":\"Point\",\n        \"coordinates\":[1.00,1.00]\n    },\n        {\n        \"type\":\"Point\",\n        \"coordinates\":[1.00,1.00]\n    },\n        {\n        \"type\":\"Point\",\n        \"coordinates\":[1.00,1.00]\n    },\n    {\n        \"type\":\"Point\",\n        \"coordinates\":[1.00,1.00]\n    },\n        {\n        \"type\":\"Point\",\n        \"coordinates\":[1.00,1.00]\n    },\n        {\n        \"type\":\"Point\",\n        \"coordinates\":[1.00,1.00]\n    },\n        {\n        \"type\":\"Point\",\n        \"coordinates\":[1.00,1.00]\n    },\n    {\n        \"type\":\"Point\",\n        \"coordinates\":[1.00,1.00]\n    },\n        {\n        \"type\":\"Point\",\n        \"coordinates\":[1.00,1.00]\n    },\n        {\n        \"type\":\"Point\",\n        \"coordinates\":[1.00,1.00]\n    },\n        {\n        \"type\":\"Point\",\n        \"coordinates\":[1.00,1.00]\n    },\n    {\n        \"type\":\"Point\",\n        \"coordinates\":[1.00,1.00]\n    },\n        {\n        \"type\":\"Point\",\n        \"coordinates\":[1.00,1.00]\n    },\n        {\n        \"type\":\"Point\",\n        \"coordinates\":[1.00,1.00]\n    },\n        {\n        \"type\":\"Point\",\n        \"coordinates\":[1.00,1.00]\n    },\n    {\n        \"type\":\"Point\",\n        \"coordinates\":[1.00,1.00]\n    },\n        {\n        \"type\":\"Point\",\n        \"coordinates\":[1.00,1.00]\n    },\n        {\n        \"type\":\"Point\",\n        \"coordinates\":[1.00,1.00]\n    },\n        {\n        \"type\":\"Point\",\n        \"coordinates\":[1.00,1.00]\n    },\n    {\n        \"type\":\"Point\",\n        \"coordinates\":[1.00,1.00]\n    },\n        {\n        \"type\":\"Point\",\n        \"coordinates\":[1.00,1.00]\n    },\n        {\n        \"type\":\"Point\",\n        \"coordinates\":[1.00,1.00]\n    },\n        {\n        \"type\":\"Point\",\n        \"coordinates\":[1.00,1.00]\n    },\n    {\n        \"type\":\"Point\",\n        \"coordinates\":[1.00,1.00]\n    },\n        {\n        \"type\":\"Point\",\n        \"coordinates\":[1.00,1.00]\n    },\n        {\n        \"type\":\"Point\",\n        \"coordinates\":[1.00,1.00]\n    },\n        {\n        \"type\":\"Point\",\n        \"coordinates\":[1.00,1.00]\n    },\n    {\n        \"type\":\"Point\",\n        \"coordinates\":[1.00,1.00]\n    },\n        {\n        \"type\":\"Point\",\n        \"coordinates\":[1.00,1.00]\n    },\n        {\n        \"type\":\"Point\",\n        \"coordinates\":[1.00,1.00]\n    },\n        {\n        \"type\":\"Point\",\n        \"coordinates\":[1.00,1.00]\n    },\n    {\n        \"type\":\"Point\",\n        \"coordinates\":[1.00,1.00]\n    },\n        {\n        \"type\":\"Point\",\n        \"coordinates\":[1.00,1.00]\n    },\n        {\n        \"type\":\"Point\",\n        \"coordinates\":[1.00,1.00]\n    },\n        {\n        \"type\":\"Point\",\n        \"coordinates\":[1.00,1.00]\n    },\n    {\n        \"type\":\"Point\",\n        \"coordinates\":[1.00,1.00]\n    },\n        {\n        \"type\":\"Point\",\n        \"coordinates\":[1.00,1.00]\n    },\n        {\n        \"type\":\"Point\",\n        \"coordinates\":[1.00,1.00]\n    },\n        {\n        \"type\":\"Point\",\n        \"coordinates\":[1.00,1.00]\n    },\n    {\n        \"type\":\"Point\",\n        \"coordinates\":[1.00,1.00]\n    },\n        {\n        \"type\":\"Point\",\n        \"coordinates\":[1.00,1.00]\n    },\n        {\n        \"type\":\"Point\",\n        \"coordinates\":[1.00,1.00]\n    },\n        {\n        \"type\":\"Point\",\n        \"coordinates\":[1.00,1.00]\n    },\n    {\n        \"type\":\"Point\",\n        \"coordinates\":[1.00,1.00]\n    },\n        {\n        \"type\":\"Point\",\n        \"coordinates\":[1.00,1.00]\n    },\n        {\n        \"type\":\"Point\",\n        \"coordinates\":[1.00,1.00]\n    },\n        {\n        \"type\":\"Point\",\n        \"coordinates\":[1.00,1.00]\n    },\n    {\n        \"type\":\"Point\",\n        \"coordinates\":[1.00,1.00]\n    },\n        {\n        \"type\":\"Point\",\n        \"coordinates\":[1.00,1.00]\n    },\n        {\n        \"type\":\"Point\",\n        \"coordinates\":[1.00,1.00]\n    },\n        {\n        \"type\":\"Point\",\n        \"coordinates\":[1.00,1.00]\n    },\n    {\n        \"type\":\"Point\",\n        \"coordinates\":[1.00,1.00]\n    },\n        {\n        \"type\":\"Point\",\n        \"coordinates\":[1.00,1.00]\n    },\n        {\n        \"type\":\"Point\",\n        \"coordinates\":[1.00,1.00]\n    },\n        {\n        \"type\":\"Point\",\n        \"coordinates\":[1.00,1.00]\n    },\n    {\n        \"type\":\"Point\",\n        \"coordinates\":[1.00,1.00]\n    },\n        {\n        \"type\":\"Point\",\n        \"coordinates\":[1.00,1.00]\n    },\n        {\n        \"type\":\"Point\",\n        \"coordinates\":[1.00,1.00]\n    },\n        {\n        \"type\":\"Point\",\n        \"coordinates\":[1.00,1.00]\n    },\n    {\n        \"type\":\"Point\",\n        \"coordinates\":[1.00,1.00]\n    },\n        {\n        \"type\":\"Point\",\n        \"coordinates\":[1.00,1.00]\n    },\n        {\n        \"type\":\"Point\",\n        \"coordinates\":[1.00,1.00]\n    },\n        {\n        \"type\":\"Point\",\n        \"coordinates\":[1.00,1.00]\n    },\n    {\n        \"type\":\"Point\",\n        \"coordinates\":[1.00,1.00]\n    },\n        {\n        \"type\":\"Point\",\n        \"coordinates\":[1.00,1.00]\n    },\n        {\n        \"type\":\"Point\",\n        \"coordinates\":[1.00,1.00]\n    },\n        {\n        \"type\":\"Point\",\n        \"coordinates\":[1.00,1.00]\n    },\n    {\n        \"type\":\"Point\",\n        \"coordinates\":[1.00,1.00]\n    },\n        {\n        \"type\":\"Point\",\n        \"coordinates\":[1.00,1.00]\n    },\n        {\n        \"type\":\"Point\",\n        \"coordinates\":[1.00,1.00]\n    },\n        {\n        \"type\":\"Point\",\n        \"coordinates\":[1.00,1.00]\n    },\n    {\n        \"type\":\"Point\",\n        \"coordinates\":[1.00,1.00]\n    },\n        {\n        \"type\":\"Point\",\n        \"coordinates\":[1.00,1.00]\n    },\n        {\n        \"type\":\"Point\",\n        \"coordinates\":[1.00,1.00]\n    },\n        {\n        \"type\":\"Point\",\n        \"coordinates\":[1.00,1.00]\n    },\n    {\n        \"type\":\"Point\",\n        \"coordinates\":[1.00,1.00]\n    },\n        {\n        \"type\":\"Point\",\n        \"coordinates\":[1.00,1.00]\n    },\n        {\n        \"type\":\"Point\",\n        \"coordinates\":[1.00,1.00]\n    },\n        {\n        \"type\":\"Point\",\n        \"coordinates\":[1.00,1.00]\n    },\n    {\n        \"type\":\"Point\",\n        \"coordinates\":[1.00,1.00]\n    },\n        {\n        \"type\":\"Point\",\n        \"coordinates\":[1.00,1.00]\n    },\n        {\n        \"type\":\"Point\",\n        \"coordinates\":[1.00,1.00]\n    },\n        {\n        \"type\":\"Point\",\n        \"coordinates\":[1.00,1.00]\n    },\n    {\n        \"type\":\"Point\",\n        \"coordinates\":[1.00,1.00]\n    },\n        {\n        \"type\":\"Point\",\n        \"coordinates\":[1.00,1.00]\n    },\n        {\n        \"type\":\"Point\",\n        \"coordinates\":[1.00,1.00]\n    },\n        {\n        \"type\":\"Point\",\n        \"coordinates\":[1.00,1.00]\n    },\n    {\n        \"type\":\"Point\",\n        \"coordinates\":[1.00,1.00]\n    },\n        {\n        \"type\":\"Point\",\n        \"coordinates\":[1.00,1.00]\n    },\n        {\n        \"type\":\"Point\",\n        \"coordinates\":[1.00,1.00]\n    },\n        {\n        \"type\":\"Point\",\n        \"coordinates\":[1.00,1.00]\n    },\n    {\n        \"type\":\"Point\",\n        \"coordinates\":[1.00,1.00]\n    },\n        {\n        \"type\":\"Point\",\n        \"coordinates\":[1.00,1.00]\n    },\n        {\n        \"type\":\"Point\",\n        \"coordinates\":[1.00,1.00]\n    },\n        {\n        \"type\":\"Point\",\n        \"coordinates\":[1.00,1.00]\n    },\n    {\n        \"type\":\"Point\",\n        \"coordinates\":[1.00,1.00]\n    },\n        {\n        \"type\":\"Point\",\n        \"coordinates\":[1.00,1.00]\n    },\n        {\n        \"type\":\"Point\",\n        \"coordinates\":[1.00,1.00]\n    },\n        {\n        \"type\":\"Point\",\n        \"coordinates\":[1.00,1.00]\n    },\n    {\n        \"type\":\"Point\",\n        \"coordinates\":[1.00,1.00]\n    },\n        {\n        \"type\":\"Point\",\n        \"coordinates\":[1.00,1.00]\n    },\n        {\n        \"type\":\"Point\",\n        \"coordinates\":[1.00,1.00]\n    },\n        {\n        \"type\":\"Point\",\n        \"coordinates\":[1.00,1.00]\n    },\n    {\n        \"type\":\"Point\",\n        \"coordinates\":[1.00,1.00]\n    },\n        {\n        \"type\":\"Point\",\n        \"coordinates\":[1.00,1.00]\n    },\n        {\n        \"type\":\"Point\",\n        \"coordinates\":[1.00,1.00]\n    },\n        {\n        \"type\":\"Point\",\n        \"coordinates\":[1.00,1.00]\n    },\n    {\n        \"type\":\"Point\",\n        \"coordinates\":[1.00,1.00]\n    },\n        {\n        \"type\":\"Point\",\n        \"coordinates\":[1.00,1.00]\n    },\n        {\n        \"type\":\"Point\",\n        \"coordinates\":[1.00,1.00]\n    },\n        {\n        \"type\":\"Point\",\n        \"coordinates\":[1.00,1.00]\n    }\n]",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "http://localhost:8001/api/V1/drivers?api_key=12345678900",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "8001",
+							"path": [
+								"api",
+								"V1",
+								"drivers"
+							],
+							"query": [
+								{
+									"key": "api_key",
+									"value": "12345678900"
+								}
+							]
+						}
+					},
+					"status": "Unauthorized",
+					"code": 401,
+					"_postman_previewlanguage": "json",
+					"header": [
+						{
+							"key": "Date",
+							"value": "Thu, 12 Jan 2023 20:58:49 GMT"
+						},
+						{
+							"key": "Content-Type",
+							"value": "application/json"
+						},
+						{
+							"key": "Content-Length",
+							"value": "27"
+						},
+						{
+							"key": "Vary",
+							"value": "Origin"
+						},
+						{
+							"key": "Access-Control-Allow-Origin",
+							"value": "*"
+						}
+					],
+					"cookie": [],
+					"body": "{\n    \"error\": \"invalid api key\"\n}"
+				},
+				{
+					"name": "Create Bulk Locations When Request Object Empty",
+					"originalRequest": {
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "[\n    \n]",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "http://localhost:8001/api/V1/drivers?api_key=1234567890",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "8001",
+							"path": [
+								"api",
+								"V1",
+								"drivers"
+							],
+							"query": [
+								{
+									"key": "api_key",
+									"value": "1234567890"
+								}
+							]
+						}
+					},
+					"status": "Bad Request",
+					"code": 400,
+					"_postman_previewlanguage": "json",
+					"header": [
+						{
+							"key": "Date",
+							"value": "Thu, 12 Jan 2023 21:00:12 GMT"
+						},
+						{
+							"key": "Content-Type",
+							"value": "application/json"
+						},
+						{
+							"key": "Content-Length",
+							"value": "27"
+						},
+						{
+							"key": "Vary",
+							"value": "Origin"
+						},
+						{
+							"key": "Access-Control-Allow-Origin",
+							"value": "*"
+						}
+					],
+					"cookie": [],
+					"body": "{\n    \"error\": \"invalid request\"\n}"
+				},
+				{
+					"name": "Create Bulk Locations",
+					"originalRequest": {
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "[\n    {\n        \"location\":{\n            \"type\":\"Point\",\n            \"coordinates\":[1.00,1.00]\n        }\n    },\n        {\n            \"location\":{\n                \"type\":\"Point\",\n                \"coordinates\":[1.00,1.00]\n        }\n    }\n]",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "http://localhost:8001/api/V1/drivers?api_key=1234567890",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "8001",
+							"path": [
+								"api",
+								"V1",
+								"drivers"
+							],
+							"query": [
+								{
+									"key": "api_key",
+									"value": "1234567890"
+								}
+							]
+						}
+					},
+					"status": "OK",
+					"code": 200,
+					"_postman_previewlanguage": "json",
+					"header": [
+						{
+							"key": "Date",
+							"value": "Thu, 12 Jan 2023 21:16:38 GMT"
+						},
+						{
+							"key": "Content-Type",
+							"value": "application/json"
+						},
+						{
+							"key": "Content-Length",
+							"value": "16"
+						},
+						{
+							"key": "Vary",
+							"value": "Origin"
+						},
+						{
+							"key": "Access-Control-Allow-Origin",
+							"value": "*"
+						}
+					],
+					"cookie": [],
+					"body": "{\n    \"success\": true\n}"
+				}
+			]
+		},
+		{
+			"name": "Find Nearest Driver",
+			"request": {
+				"method": "GET",
+				"header": []
+			},
+			"response": []
+		}
+	]
+}
