@@ -43,6 +43,18 @@ func (h *Handler) ErrorHandler(c *fiber.Ctx, err error) error {
 	})
 }
 
+// @Summary Get nearest driver
+// @Description Get nearest driver
+// @Tags Driver
+// @Accept json
+// @Produce json
+// @Param lat query string true "Latitude"
+// @Param long query string true "Longitude"
+// @Success 200 {object} pkg.SuccessResponse
+// @Failure 400 {object} pkg.ErrorResponse
+// @Failure 404 {object} pkg.ErrorResponse
+// @Failure 500 {object} pkg.ErrorResponse
+// @Router /drivers/nearest [get]
 func (h *Handler) GetNearestDriver(c *fiber.Ctx) error {
 
 	lat := c.Query("lat")
@@ -80,6 +92,16 @@ func (h *Handler) GetNearestDriver(c *fiber.Ctx) error {
 	})
 }
 
+// @Summary Bulk create drivers
+// @Description Bulk create drivers
+// @Tags Driver
+// @Accept json
+// @Produce json
+// @Param drivers body []internal.Model true "Drivers"
+// @Success 200 {object} pkg.SuccessResponse
+// @Failure 400 {object} pkg.ErrorResponse
+// @Failure 500 {object} pkg.ErrorResponse
+// @Router /drivers [post]
 func (h *Handler) BulkCreateDrivers(c *fiber.Ctx) error {
 
 	var drivers []internal.Model

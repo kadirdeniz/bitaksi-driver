@@ -7,6 +7,17 @@ import (
 	"go.uber.org/zap"
 )
 
+// @Summary Is api key valid
+// @Description Check if api key is valid
+// @Tags Api Key Middleware
+// @Accept json
+// @Produce json
+// @QueryParam api_key query string true
+// @Success 200 {object} pkg.SuccessResponse
+// @Failure 401 {object} pkg.ErrorResponse
+// @Router /api/v1/drivers/nearest [get]
+// @Router /api/v1/drivers [post]
+// @BasePath /api/v1
 func IsApiKeyCorrect(c *fiber.Ctx) error {
 	apiKey := c.Query("api_key")
 	if apiKey == pkg.AppConfigs.GetApplicationConfig().API_KEY {

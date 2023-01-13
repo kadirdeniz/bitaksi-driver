@@ -1,6 +1,7 @@
 package main
 
 import (
+	_ "driver/docs"
 	"driver/tools/fiber"
 	"fmt"
 )

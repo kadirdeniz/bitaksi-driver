@@ -49,9 +49,6 @@ func StartServer(port int) error {
 	// Cors
 	app.Use(cors.New())
 
-	// Swagger
-	app.Get("/swagger/*", swagger.HandlerDefault)
-
 	// Recovery
 	app.Use(recover.New())
 
@@ -66,6 +63,9 @@ func StartServer(port int) error {
 	api.Get("/health", func(c *fiber.Ctx) error {
 		return c.Status(fiber.StatusOK).SendString("OK")
 	})
+
+	// Swagger
+	api.Get("/swagger/*", swagger.HandlerDefault)
 
 	// Monitoring
 	api.Get("/metrics", monitor.New(monitor.Config{Title: "Driver Service Metrics Page"}))
