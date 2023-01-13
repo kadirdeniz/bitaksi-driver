@@ -22,9 +22,11 @@ $ cd bitaksi-driver
 ```
 
 ## Setup
-##### Application can run with using docker but running locally would be more stable
+##### Application can run with using docker but running locally would be more stable, make sure mongodb is running before running or testing the app!
 
 ```
+$ make docker-mongo-up
+
 $ make run
 
 $ make dockerized
